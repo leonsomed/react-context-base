@@ -1,0 +1,20 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'myfont';
+    src: url('/fonts/raustila-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'myfont';
+    font-size: 6rem;
+}
+
+.wrapper {
+    text-align: center;
+}
