@@ -25,6 +25,8 @@ module.exports = {
            4,
            { "SwitchCase": 1 }
         ],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "linebreak-style": [
             "error",
             "unix"
@@ -39,8 +41,8 @@ module.exports = {
         ],
         "no-underscore-dangle": [
           "error",
-          { "allow": ["_id", "_error"] }
-        ],
-        'no-restricted-syntax': [0, 'ForOfStatement'],
+          { "allow": ["_id"] }
+        ]
+
     }
 };

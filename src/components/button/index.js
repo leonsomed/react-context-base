@@ -1,12 +1,23 @@
 import React from 'react';
-import './style.scss';
+import PropTypes from 'prop-types';
+import styles from './style.scss';
 
-function Button() {
+function Button(props) {
+    const { title } = props;
+
     return (
-        <div className="mybutton">
-            wow
+        <div className={styles.mybutton}>
+            {title}
         </div>
     );
 }
+
+Button.defaultProps = {
+    title: '',
+};
+
+Button.propTypes = {
+    title: PropTypes.string,
+};
 
 export default Button;
