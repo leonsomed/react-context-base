@@ -1,3 +1,3 @@
 export default {
-    TEST: process.env.TEST,
+    test: process.env.test,
 };

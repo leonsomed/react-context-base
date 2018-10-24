@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     mode: 'development',
@@ -88,11 +89,7 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                TEST: JSON.stringify('test'),
-            },
-        }),
+        new Dotenv(),
 
         new ExtractTextPlugin({
             filename: 'styles.css',
@@ -124,6 +121,19 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, 'src'),
         port: 3000,
+        proxy: {
+            '/**': {
+                target: '/index.html',
+                secure: false,
+                bypass(req) {
+                    if (req.headers.accept.indexOf('html') !== -1) {
+                        return '/index.html';
+                    }
+
+                    return '';
+                },
+            },
+        },
     },
 
     devtool: 'source-map',
