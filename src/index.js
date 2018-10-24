@@ -1,7 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import './loader';
-import Dashboard from './containers/dashboard';
+import Root from './containers/root';
+import Routes from './routes.js';
+import store from './redux/store.js';
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'));
+const App = (
+    <Provider store={store}>
+        <BrowserRouter>
+            <Root>
+                <Routes />
+            </Root>
+        </BrowserRouter>
+    </Provider>
+);
+
+ReactDOM.render(App, document.getElementById('root'));
