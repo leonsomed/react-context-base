@@ -1,4 +1,6 @@
-.mybutton {
-    background-color: blue;
+@import '../../assets/scss/vars.scss';
+
+.myButton {
+    background-color: $primary-color;
     font-family: 'myfont';
 }
