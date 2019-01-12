@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-
+import {
+    BrowserRouter,
+    Route,
+    Switch,
+    Redirect,
+} from 'react-router-dom';
 import './loader';
 import Root from './containers/root';
-import Routes from './routes.js';
+import { AppContextProvider } from './contexts/app';
+import Dashboard from './containers/dashboard';
 
 const App = (
     <BrowserRouter>
-        <Root>
-            <Routes />
-        </Root>
+        <AppContextProvider>
+            <Root>
+                <Switch>
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Redirect from="/" to="/dashboard" />
+                </Switch>
+            </Root>
+        </AppContextProvider>
     </BrowserRouter>
 );
 

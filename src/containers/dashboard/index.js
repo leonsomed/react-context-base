@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from '../../pages/dashboard';
 import config from '../../config';
+import { AppContext } from '../../contexts/app';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        const { title } = this.state;
+        const { title } = this.context;
 
         return (
             <Page
@@ -21,5 +22,7 @@ class Dashboard extends React.Component {
         );
     }
 }
+
+Dashboard.contextType = AppContext;
 
 export default Dashboard;
